@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 # -------------------------------------------------------
 # GEMS
 gem 'bootstrap-sass', '3.3.7'
-
+gem 'hirb'
 # -------------------------------------------------------
 
 # Use CoffeeScript for .coffee assets and views
