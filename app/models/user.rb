@@ -11,4 +11,18 @@ class User < ApplicationRecord
 	# replaced unqueness true with case_sensitive - rails should know that it
 	# is true as well
 	# if name and or email not present, the object will not be saved
+
+	has_secure_password
+	# users password is hashed
+	# functionality added: 
+
+	# adds password_digest to the database
+
+	# adds pair of virtual attributes (password and password_confirmation)
+	# including the presence validation upon object creation and validation 
+	# that requires them to match
+
+	# Adds 'authenticate' method that returns the user when the password is
+	# correct (and false otherwise)
+
 end
