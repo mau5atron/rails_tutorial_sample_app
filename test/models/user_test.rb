@@ -44,8 +44,16 @@ class UserTest < ActiveSupport::TestCase
                            foo@bar_baz.com foo@bar+baz.com] 
     invalid_addresses.each do |x_invalid_address|
     	@user.email = x_invalid_address
-    	assert_not @user.valid?, "#{x_invalid_address} should be invalid"
+    	assert_not @user.valid?, "#{x_invalid_address} should be invalid_addresses"
     end
 	end
+
+
+	test "email addresses should be unique" do 
+		duplicate_user = @user.dup
+		duplicate_user.email = @user.email.upcase
+		@user.save
+		assert_not duplicate_user.valid?
+	end 
 
 end
