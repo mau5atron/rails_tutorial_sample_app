@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+	before_save {self.email = email.downcase}
+	# callback - right before the user is saved, the email is downcased
+
 	validates :name, presence: true, length: { maximum: 50 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	# Regular expression for email validation
