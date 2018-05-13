@@ -8,7 +8,7 @@ class User < ApplicationRecord
 	# Regular expression for email validation
 	validates :email, presence: true, length: { maximum: 255 }, 
 	format: {with: VALID_EMAIL_REGEX}, uniqueness: { case_sensitive: false }
-	validates :password, length: {minimum: 6}
+	validates :password, presence: true, length: {minimum: 6}
 	# replaced unqueness true with case_sensitive - rails should know that it
 	# is true as well
 	# if name and or email not present, the object will not be saved
